@@ -1,0 +1,5 @@
+1. Verify the Deployment:
+   kubectl -n demo get deploy,pods,svc,ingress
+2. Verify the Ingress:
+   curl --resolve demo.local:80:127.0.0.1 http://demo.local/
+   curl --resolve demo.local:80:127.0.0.1 http://demo.local/healthz

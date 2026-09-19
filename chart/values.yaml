@@ -1,0 +1,36 @@
+replicaCount: 2
+
+image:
+  repository: enterprise-bot/demo-service
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+config:
+  appName: demo-service
+  version: "0.1.0"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  host: demo.local
+  path: /
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+probes:
+  path: /healthz
+  port: 8080
+  initialDelaySeconds: 3
+  periodSeconds: 5
+  timeoutSeconds: 2
+  failureThreshold: 3

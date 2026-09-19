@@ -1,0 +1,859 @@
+Script started on 2026-09-19 06:33:45+05:30 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="184" LINES="45"]
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7m./scenario.sh up[27m./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Error: UPGRADE FAILED: cannot patch "migrate" with kind Job: Job.batch "migrate" is invalid: spec.template: Invalid value: {"labels":{"app":"migrate","batch.kubernetes.io/controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","batch.kubernetes.io/job-name":"migrate","controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","job-name":"migrate"},"Spec":{"Volumes":null,"InitContainers":null,"Containers":[{"Name":"migrate","Image":"docker.io/ebinterview/eb-debug-app:1.0.1","Command":null,"Args":null,"WorkingDir":"","Ports":null,"EnvFrom":null,"Env":[{"Name":"APP_MODE","Value":"migrate","ValueFrom":null},{"Name":"APP_NAME","Value":"migrate","ValueFrom":null},{"Name":"VERSION","Value":"2.0.0","ValueFrom":null}],"Resources":{"Limits":{"cpu":"200m","memory":"128Mi"},"Requests":{"cpu":"50m","memory":"64Mi"},"Claims":null},"ResizePolicy":null,"RestartPolicy":null,"RestartPolicyRules":null,"VolumeMounts":null,"VolumeDevices":null,"LivenessProbe":null,"ReadinessProbe":null,"StartupProbe":null,"Lifecycle":null,"TerminationMessagePath":"/dev/termination-log","TerminationMessagePolicy":"File","ImagePullPolicy":"IfNotPresent","SecurityContext":{"Capabilities":{"Add":null,"Drop":["ALL"]},"Privileged":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"ReadOnlyRootFilesystem":true,"AllowPrivilegeEscalation":false,"ProcMount":null,"SeccompProfile":null,"AppArmorProfile":null},"Stdin":false,"StdinOnce":false,"TTY":false}],"EphemeralContainers":null,"RestartPolicy":"Never","TerminationGracePeriodSeconds":30,"ActiveDeadlineSeconds":null,"DNSPolicy":"ClusterFirst","NodeSelector":null,"ServiceAccountName":"","AutomountServiceAccountToken":null,"NodeName":"","SecurityContext":{"HostNetwork":false,"HostPID":false,"HostIPC":false,"ShareProcessNamespace":null,"HostUsers":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"SupplementalGroups":null,"SupplementalGroupsPolicy":null,"FSGroup":null,"FSGroupChangePolicy":null,"Sysctls":null,"SeccompProfile":null,"AppArmorProfile":null,"SELinuxChangePolicy":null},"ImagePullSecrets":null,"Hostname":"","Subdomain":"","SetHostnameAsFQDN":null,"Affinity":null,"SchedulerName":"default-scheduler","Tolerations":null,"HostAliases":null,"PriorityClassName":"","Priority":null,"PreemptionPolicy":null,"DNSConfig":null,"ReadinessGates":null,"RuntimeClassName":null,"Overhead":null,"EnableServiceLinks":null,"TopologySpreadConstraints":null,"OS":null,"SchedulingGates":null,"ResourceClaims":null,"Resources":null,"HostnameOverride":null}}: field is immutable
+
+[2mhelm reported an error. That is not your machine misbehaving —[0m
+[2mit is part of the exercise. Read the error; it is evidence.[0m
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ ./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Error: UPGRADE FAILED: cannot patch "migrate" with kind Job: Job.batch "migrate" is invalid: spec.template: Invalid value: {"labels":{"app":"migrate","batch.kubernetes.io/controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","batch.kubernetes.io/job-name":"migrate","controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","job-name":"migrate"},"Spec":{"Volumes":null,"InitContainers":null,"Containers":[{"Name":"migrate","Image":"docker.io/ebinterview/eb-debug-app:1.0.1","Command":null,"Args":null,"WorkingDir":"","Ports":null,"EnvFrom":null,"Env":[{"Name":"APP_MODE","Value":"migrate","ValueFrom":null},{"Name":"APP_NAME","Value":"migrate","ValueFrom":null},{"Name":"VERSION","Value":"2.0.0","ValueFrom":null}],"Resources":{"Limits":{"cpu":"200m","memory":"128Mi"},"Requests":{"cpu":"50m","memory":"64Mi"},"Claims":null},"ResizePolicy":null,"RestartPolicy":null,"RestartPolicyRules":null,"VolumeMounts":null,"VolumeDevices":null,"LivenessProbe":null,"ReadinessProbe":null,"StartupProbe":null,"Lifecycle":null,"TerminationMessagePath":"/dev/termination-log","TerminationMessagePolicy":"File","ImagePullPolicy":"IfNotPresent","SecurityContext":{"Capabilities":{"Add":null,"Drop":["ALL"]},"Privileged":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"ReadOnlyRootFilesystem":true,"AllowPrivilegeEscalation":false,"ProcMount":null,"SeccompProfile":null,"AppArmorProfile":null},"Stdin":false,"StdinOnce":false,"TTY":false}],"EphemeralContainers":null,"RestartPolicy":"Never","TerminationGracePeriodSeconds":30,"ActiveDeadlineSeconds":null,"DNSPolicy":"ClusterFirst","NodeSelector":null,"ServiceAccountName":"","AutomountServiceAccountToken":null,"NodeName":"","SecurityContext":{"HostNetwork":false,"HostPID":false,"HostIPC":false,"ShareProcessNamespace":null,"HostUsers":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"SupplementalGroups":null,"SupplementalGroupsPolicy":null,"FSGroup":null,"FSGroupChangePolicy":null,"Sysctls":null,"SeccompProfile":null,"AppArmorProfile":null,"SELinuxChangePolicy":null},"ImagePullSecrets":null,"Hostname":"","Subdomain":"","SetHostnameAsFQDN":null,"Affinity":null,"SchedulerName":"default-scheduler","Tolerations":null,"HostAliases":null,"PriorityClassName":"","Priority":null,"PreemptionPolicy":null,"DNSConfig":null,"ReadinessGates":null,"RuntimeClassName":null,"Overhead":null,"EnableServiceLinks":null,"TopologySpreadConstraints":null,"OS":null,"SchedulingGates":null,"ResourceClaims":null,"Resources":null,"HostnameOverride":null}}: field is immutable
+
+[2mhelm reported an error. That is not your machine misbehaving —[0m
+[2mit is part of the exercise. Read the error; it is evidence.[0m
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7m./scenario.sh verify[27m./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [31mFAIL[0m  migrate Job has not completed (does it exist? did the chart even install cleanly?)
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [31mFAIL[0m  1 pod(s) in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [31mFAIL[0m  backend does not answer on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m10 check(s) failing[0m, 1 passing. Keep digging — every failure is a symptom.
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mkubectl -n debug-lab get pods,deploy,jobs,events[27mkubectl -n debug-lab get pods,deploy,jobs,events
+[?2004lNAME                            READY   STATUS                       RESTARTS     AGE
+pod/backend-649b4bbcd4-zqkf7    0/1     Running                      0            26s
+pod/backend-7d66946bf7-5vq4t    0/1     CreateContainerConfigError   0            8h
+pod/gateway-5b4874d46f-vbqrh    0/1     CreateContainerConfigError   0            8h
+pod/gateway-79f997f888-hk8gb    0/1     Running                      0            26s
+pod/metrics-55d77b7fc-zkpjl     0/1     CreateContainerConfigError   0            8h
+pod/metrics-6f64fcc59b-9swgx    0/1     Running                      0            26s
+pod/migrate-74bvr               0/1     CreateContainerConfigError   0            8h
+pod/reporter-6f7cc7495f-jq4tv   0/1     CreateContainerConfigError   0            8h
+pod/reporter-86d8796666-qclgm   0/1     Running                      0            26s
+pod/worker-7659796b9b-qggw4     0/1     CrashLoopBackOff             2 (4s ago)   26s
+pod/worker-7694df7b9c-tjt5r     0/1     CreateContainerConfigError   0            8h
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/backend    0/1     1            0           8h
+deployment.apps/gateway    0/1     1            0           8h
+deployment.apps/metrics    0/1     1            0           8h
+deployment.apps/reporter   0/1     1            0           8h
+deployment.apps/worker     0/1     1            0           8h
+
+NAME                STATUS    COMPLETIONS   DURATION   AGE
+job.batch/migrate   Running   0/1           8h         8h
+
+LAST SEEN   TYPE      REASON              OBJECT                           MESSAGE
+26s         Normal    Scheduled           pod/backend-649b4bbcd4-zqkf7     Successfully assigned debug-lab/backend-649b4bbcd4-zqkf7 to demo-control-plane
+26s         Normal    Pulled              pod/backend-649b4bbcd4-zqkf7     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+26s         Normal    Created             pod/backend-649b4bbcd4-zqkf7     Created container: backend
+25s         Normal    Started             pod/backend-649b4bbcd4-zqkf7     Started container backend
+2s          Warning   Unhealthy           pod/backend-649b4bbcd4-zqkf7     Readiness probe failed: Get "http://10.244.0.15:8080/healthz": dial tcp 10.244.0.15:8080: connect: connection refused
+26s         Normal    SuccessfulCreate    replicaset/backend-649b4bbcd4    Created pod: backend-649b4bbcd4-zqkf7
+8h          Normal    Scheduled           pod/backend-7d66946bf7-5vq4t     Successfully assigned debug-lab/backend-7d66946bf7-5vq4t to demo-control-plane
+8h          Normal    Pulling             pod/backend-7d66946bf7-5vq4t     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 1.969s (29.666s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/backend-7d66946bf7-5vq4t     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "backend-7d66946bf7-5vq4t_debug-lab(bec92b23-8892-4568-896e-da5779f944e7)", container: backend)
+8h          Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/backend-7d66946bf7-5vq4t     Pod sandbox changed, it will be killed and re-created.
+3m37s       Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m37s       Warning   Failed              pod/backend-7d66946bf7-5vq4t     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "backend-7d66946bf7-5vq4t_debug-lab(bec92b23-8892-4568-896e-da5779f944e7)", container: backend)
+8h          Normal    SuccessfulCreate    replicaset/backend-7d66946bf7    Created pod: backend-7d66946bf7-5vq4t
+8h          Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-7d66946bf7 from 0 to 1
+26s         Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-649b4bbcd4 from 0 to 1
+8h          Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+8h          Normal    Pulling             pod/eb-verify-probe              Pulling image "busybox:1.36"
+8h          Normal    Pulled              pod/eb-verify-probe              Successfully pulled image "busybox:1.36" in 7.57s (28.388s including waiting). Image size: 2217006 bytes.
+8h          Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+8h          Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+8h          Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+8h          Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+8h          Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+8h          Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+9m12s       Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+9m11s       Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+9m11s       Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+9m10s       Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+9s          Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+8s          Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+8s          Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+7s          Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+8h          Normal    Scheduled           pod/gateway-5b4874d46f-vbqrh     Successfully assigned debug-lab/gateway-5b4874d46f-vbqrh to demo-control-plane
+8h          Normal    Pulling             pod/gateway-5b4874d46f-vbqrh     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.459s (24.524s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/gateway-5b4874d46f-vbqrh     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "gateway-5b4874d46f-vbqrh_debug-lab(9efa743a-3630-48d8-bcad-515b1b0f361c)", container: gateway)
+8h          Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/gateway-5b4874d46f-vbqrh     Pod sandbox changed, it will be killed and re-created.
+3m46s       Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m46s       Warning   Failed              pod/gateway-5b4874d46f-vbqrh     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "gateway-5b4874d46f-vbqrh_debug-lab(9efa743a-3630-48d8-bcad-515b1b0f361c)", container: gateway)
+8h          Normal    SuccessfulCreate    replicaset/gateway-5b4874d46f    Created pod: gateway-5b4874d46f-vbqrh
+26s         Normal    Scheduled           pod/gateway-79f997f888-hk8gb     Successfully assigned debug-lab/gateway-79f997f888-hk8gb to demo-control-plane
+26s         Normal    Pulled              pod/gateway-79f997f888-hk8gb     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+25s         Normal    Created             pod/gateway-79f997f888-hk8gb     Created container: gateway
+25s         Normal    Started             pod/gateway-79f997f888-hk8gb     Started container gateway
+3s          Warning   Unhealthy           pod/gateway-79f997f888-hk8gb     Readiness probe failed: Get "http://10.244.0.16:8080/healthz": dial tcp 10.244.0.16:8080: connect: connection refused
+26s         Normal    SuccessfulCreate    replicaset/gateway-79f997f888    Created pod: gateway-79f997f888-hk8gb
+8h          Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-5b4874d46f from 0 to 1
+26s         Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-79f997f888 from 0 to 1
+8h          Normal    Scheduled           pod/metrics-55d77b7fc-zkpjl      Successfully assigned debug-lab/metrics-55d77b7fc-zkpjl to demo-control-plane
+8h          Normal    Pulling             pod/metrics-55d77b7fc-zkpjl      Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 19.658s (19.658s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/metrics-55d77b7fc-zkpjl      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "metrics-55d77b7fc-zkpjl_debug-lab(971e05ce-1893-4cf3-ad59-35e7d1ae3e84)", container: metrics)
+8h          Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/metrics-55d77b7fc-zkpjl      Pod sandbox changed, it will be killed and re-created.
+3m42s       Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m42s       Warning   Failed              pod/metrics-55d77b7fc-zkpjl      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "metrics-55d77b7fc-zkpjl_debug-lab(971e05ce-1893-4cf3-ad59-35e7d1ae3e84)", container: metrics)
+8h          Normal    SuccessfulCreate    replicaset/metrics-55d77b7fc     Created pod: metrics-55d77b7fc-zkpjl
+26s         Normal    Scheduled           pod/metrics-6f64fcc59b-9swgx     Successfully assigned debug-lab/metrics-6f64fcc59b-9swgx to demo-control-plane
+26s         Normal    Pulled              pod/metrics-6f64fcc59b-9swgx     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+26s         Normal    Created             pod/metrics-6f64fcc59b-9swgx     Created container: metrics
+25s         Normal    Started             pod/metrics-6f64fcc59b-9swgx     Started container metrics
+4s          Warning   Unhealthy           pod/metrics-6f64fcc59b-9swgx     Readiness probe failed: Get "http://10.244.0.17:8080/healthz": dial tcp 10.244.0.17:8080: connect: connection refused
+26s         Normal    SuccessfulCreate    replicaset/metrics-6f64fcc59b    Created pod: metrics-6f64fcc59b-9swgx
+8h          Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-55d77b7fc from 0 to 1
+26s         Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-6f64fcc59b from 0 to 1
+8h          Normal    Scheduled           pod/migrate-74bvr                Successfully assigned debug-lab/migrate-74bvr to demo-control-plane
+8h          Normal    Pulling             pod/migrate-74bvr                Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/migrate-74bvr                Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 3.279s (27.767s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/migrate-74bvr                Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "migrate-74bvr_debug-lab(d10b6ed3-5643-4e55-a686-0ed4eb59eae9)", container: migrate)
+8h          Normal    Pulled              pod/migrate-74bvr                Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/migrate-74bvr                Pod sandbox changed, it will be killed and re-created.
+3m34s       Normal    Pulled              pod/migrate-74bvr                Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m34s       Warning   Failed              pod/migrate-74bvr                Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "migrate-74bvr_debug-lab(d10b6ed3-5643-4e55-a686-0ed4eb59eae9)", container: migrate)
+8h          Normal    SuccessfulCreate    job/migrate                      Created pod: migrate-74bvr
+8h          Normal    Scheduled           pod/reporter-6f7cc7495f-jq4tv    Successfully assigned debug-lab/reporter-6f7cc7495f-jq4tv to demo-control-plane
+8h          Normal    Pulling             pod/reporter-6f7cc7495f-jq4tv    Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.191s (31.706s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/reporter-6f7cc7495f-jq4tv    Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "reporter-6f7cc7495f-jq4tv_debug-lab(1d9f1157-052a-474d-b6fd-505ce46cac52)", container: reporter)
+8h          Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/reporter-6f7cc7495f-jq4tv    Pod sandbox changed, it will be killed and re-created.
+3m38s       Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m38s       Warning   Failed              pod/reporter-6f7cc7495f-jq4tv    Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "reporter-6f7cc7495f-jq4tv_debug-lab(1d9f1157-052a-474d-b6fd-505ce46cac52)", container: reporter)
+8h          Normal    SuccessfulCreate    replicaset/reporter-6f7cc7495f   Created pod: reporter-6f7cc7495f-jq4tv
+26s         Normal    Scheduled           pod/reporter-86d8796666-qclgm    Successfully assigned debug-lab/reporter-86d8796666-qclgm to demo-control-plane
+26s         Normal    Pulled              pod/reporter-86d8796666-qclgm    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+26s         Normal    Created             pod/reporter-86d8796666-qclgm    Created container: reporter
+25s         Normal    Started             pod/reporter-86d8796666-qclgm    Started container reporter
+3s          Warning   Unhealthy           pod/reporter-86d8796666-qclgm    Readiness probe failed: Get "http://10.244.0.18:8080/healthz": dial tcp 10.244.0.18:8080: connect: connection refused
+26s         Normal    SuccessfulCreate    replicaset/reporter-86d8796666   Created pod: reporter-86d8796666-qclgm
+8h          Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-6f7cc7495f from 0 to 1
+26s         Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-86d8796666 from 0 to 1
+26s         Normal    Scheduled           pod/worker-7659796b9b-qggw4      Successfully assigned debug-lab/worker-7659796b9b-qggw4 to demo-control-plane
+6s          Normal    Pulled              pod/worker-7659796b9b-qggw4      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+5s          Normal    Created             pod/worker-7659796b9b-qggw4      Created container: worker
+4s          Normal    Started             pod/worker-7659796b9b-qggw4      Started container worker
+1s          Warning   BackOff             pod/worker-7659796b9b-qggw4      Back-off restarting failed container worker in pod worker-7659796b9b-qggw4_debug-lab(249ba62f-f2b9-4428-867c-0fa19cb7ec0d)
+26s         Normal    SuccessfulCreate    replicaset/worker-7659796b9b     Created pod: worker-7659796b9b-qggw4
+8h          Normal    Scheduled           pod/worker-7694df7b9c-tjt5r      Successfully assigned debug-lab/worker-7694df7b9c-tjt5r to demo-control-plane
+8h          Normal    Pulling             pod/worker-7694df7b9c-tjt5r      Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.416s (22.074s including waiting). Image size: 3279587 bytes.
+8h          Warning   Failed              pod/worker-7694df7b9c-tjt5r      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "worker-7694df7b9c-tjt5r_debug-lab(73b786a6-3f32-4a2a-a3d1-ad6546badbdc)", container: worker)
+8h          Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+18m         Normal    SandboxChanged      pod/worker-7694df7b9c-tjt5r      Pod sandbox changed, it will be killed and re-created.
+3m36s       Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m36s       Warning   Failed              pod/worker-7694df7b9c-tjt5r      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "worker-7694df7b9c-tjt5r_debug-lab(73b786a6-3f32-4a2a-a3d1-ad6546badbdc)", container: worker)
+8h          Normal    SuccessfulCreate    replicaset/worker-7694df7b9c     Created pod: worker-7694df7b9c-tjt5r
+8h          Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-7694df7b9c from 0 to 1
+26s         Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-7659796b9b from 0 to 1
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mkubectl -n debug-lab get events --sort-by=.lastTimestamp[27mkubectl -n debug-lab get events --sort-by=.lastTimestamp
+[?2004lLAST SEEN   TYPE      REASON              OBJECT                           MESSAGE
+8h          Normal    Scheduled           pod/worker-7694df7b9c-tjt5r      Successfully assigned debug-lab/worker-7694df7b9c-tjt5r to demo-control-plane
+8h          Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-55d77b7fc from 0 to 1
+8h          Normal    SuccessfulCreate    replicaset/worker-7694df7b9c     Created pod: worker-7694df7b9c-tjt5r
+8h          Normal    Scheduled           pod/metrics-55d77b7fc-zkpjl      Successfully assigned debug-lab/metrics-55d77b7fc-zkpjl to demo-control-plane
+8h          Normal    Scheduled           pod/reporter-6f7cc7495f-jq4tv    Successfully assigned debug-lab/reporter-6f7cc7495f-jq4tv to demo-control-plane
+8h          Normal    SuccessfulCreate    job/migrate                      Created pod: migrate-74bvr
+8h          Normal    Scheduled           pod/backend-7d66946bf7-5vq4t     Successfully assigned debug-lab/backend-7d66946bf7-5vq4t to demo-control-plane
+8h          Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-6f7cc7495f from 0 to 1
+8h          Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-5b4874d46f from 0 to 1
+8h          Normal    SuccessfulCreate    replicaset/metrics-55d77b7fc     Created pod: metrics-55d77b7fc-zkpjl
+8h          Normal    SuccessfulCreate    replicaset/gateway-5b4874d46f    Created pod: gateway-5b4874d46f-vbqrh
+8h          Normal    SuccessfulCreate    replicaset/backend-7d66946bf7    Created pod: backend-7d66946bf7-5vq4t
+8h          Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-7694df7b9c from 0 to 1
+8h          Normal    Scheduled           pod/gateway-5b4874d46f-vbqrh     Successfully assigned debug-lab/gateway-5b4874d46f-vbqrh to demo-control-plane
+8h          Normal    Scheduled           pod/migrate-74bvr                Successfully assigned debug-lab/migrate-74bvr to demo-control-plane
+8h          Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-7d66946bf7 from 0 to 1
+8h          Normal    SuccessfulCreate    replicaset/reporter-6f7cc7495f   Created pod: reporter-6f7cc7495f-jq4tv
+8h          Normal    Pulling             pod/reporter-6f7cc7495f-jq4tv    Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulling             pod/worker-7694df7b9c-tjt5r      Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulling             pod/migrate-74bvr                Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulling             pod/gateway-5b4874d46f-vbqrh     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulling             pod/backend-7d66946bf7-5vq4t     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Pulling             pod/metrics-55d77b7fc-zkpjl      Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+8h          Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+8h          Normal    Pulling             pod/eb-verify-probe              Pulling image "busybox:1.36"
+8h          Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 19.658s (19.658s including waiting). Image size: 3279587 bytes.
+8h          Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.416s (22.074s including waiting). Image size: 3279587 bytes.
+8h          Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.459s (24.524s including waiting). Image size: 3279587 bytes.
+8h          Normal    Pulled              pod/migrate-74bvr                Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 3.279s (27.767s including waiting). Image size: 3279587 bytes.
+8h          Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 1.969s (29.666s including waiting). Image size: 3279587 bytes.
+8h          Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.191s (31.706s including waiting). Image size: 3279587 bytes.
+8h          Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+8h          Normal    Pulled              pod/eb-verify-probe              Successfully pulled image "busybox:1.36" in 7.57s (28.388s including waiting). Image size: 2217006 bytes.
+8h          Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+8h          Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+8h          Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+8h          Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+8h          Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+8h          Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Normal    Pulled              pod/migrate-74bvr                Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+8h          Warning   Failed              pod/metrics-55d77b7fc-zkpjl      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "metrics-55d77b7fc-zkpjl_debug-lab(971e05ce-1893-4cf3-ad59-35e7d1ae3e84)", container: metrics)
+8h          Warning   Failed              pod/worker-7694df7b9c-tjt5r      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "worker-7694df7b9c-tjt5r_debug-lab(73b786a6-3f32-4a2a-a3d1-ad6546badbdc)", container: worker)
+8h          Warning   Failed              pod/gateway-5b4874d46f-vbqrh     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "gateway-5b4874d46f-vbqrh_debug-lab(9efa743a-3630-48d8-bcad-515b1b0f361c)", container: gateway)
+8h          Warning   Failed              pod/migrate-74bvr                Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "migrate-74bvr_debug-lab(d10b6ed3-5643-4e55-a686-0ed4eb59eae9)", container: migrate)
+8h          Warning   Failed              pod/backend-7d66946bf7-5vq4t     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "backend-7d66946bf7-5vq4t_debug-lab(bec92b23-8892-4568-896e-da5779f944e7)", container: backend)
+8h          Warning   Failed              pod/reporter-6f7cc7495f-jq4tv    Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "reporter-6f7cc7495f-jq4tv_debug-lab(1d9f1157-052a-474d-b6fd-505ce46cac52)", container: reporter)
+18m         Normal    SandboxChanged      pod/metrics-55d77b7fc-zkpjl      Pod sandbox changed, it will be killed and re-created.
+18m         Normal    SandboxChanged      pod/reporter-6f7cc7495f-jq4tv    Pod sandbox changed, it will be killed and re-created.
+18m         Normal    SandboxChanged      pod/migrate-74bvr                Pod sandbox changed, it will be killed and re-created.
+18m         Normal    SandboxChanged      pod/worker-7694df7b9c-tjt5r      Pod sandbox changed, it will be killed and re-created.
+18m         Normal    SandboxChanged      pod/backend-7d66946bf7-5vq4t     Pod sandbox changed, it will be killed and re-created.
+18m         Normal    SandboxChanged      pod/gateway-5b4874d46f-vbqrh     Pod sandbox changed, it will be killed and re-created.
+9m19s       Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+9m18s       Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+9m18s       Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+9m17s       Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+3m53s       Warning   Failed              pod/gateway-5b4874d46f-vbqrh     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "gateway-5b4874d46f-vbqrh_debug-lab(9efa743a-3630-48d8-bcad-515b1b0f361c)", container: gateway)
+3m53s       Normal    Pulled              pod/gateway-5b4874d46f-vbqrh     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m49s       Warning   Failed              pod/metrics-55d77b7fc-zkpjl      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "metrics-55d77b7fc-zkpjl_debug-lab(971e05ce-1893-4cf3-ad59-35e7d1ae3e84)", container: metrics)
+3m49s       Normal    Pulled              pod/metrics-55d77b7fc-zkpjl      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m45s       Warning   Failed              pod/reporter-6f7cc7495f-jq4tv    Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "reporter-6f7cc7495f-jq4tv_debug-lab(1d9f1157-052a-474d-b6fd-505ce46cac52)", container: reporter)
+3m45s       Normal    Pulled              pod/reporter-6f7cc7495f-jq4tv    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m44s       Warning   Failed              pod/backend-7d66946bf7-5vq4t     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "backend-7d66946bf7-5vq4t_debug-lab(bec92b23-8892-4568-896e-da5779f944e7)", container: backend)
+3m44s       Normal    Pulled              pod/backend-7d66946bf7-5vq4t     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m43s       Normal    Pulled              pod/worker-7694df7b9c-tjt5r      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+3m43s       Warning   Failed              pod/worker-7694df7b9c-tjt5r      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "worker-7694df7b9c-tjt5r_debug-lab(73b786a6-3f32-4a2a-a3d1-ad6546badbdc)", container: worker)
+3m41s       Warning   Failed              pod/migrate-74bvr                Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "migrate-74bvr_debug-lab(d10b6ed3-5643-4e55-a686-0ed4eb59eae9)", container: migrate)
+3m41s       Normal    Pulled              pod/migrate-74bvr                Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+33s         Normal    SuccessfulCreate    replicaset/metrics-6f64fcc59b    Created pod: metrics-6f64fcc59b-9swgx
+33s         Normal    SuccessfulCreate    replicaset/reporter-86d8796666   Created pod: reporter-86d8796666-qclgm
+33s         Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-7659796b9b from 0 to 1
+33s         Normal    Pulled              pod/backend-649b4bbcd4-zqkf7     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+33s         Normal    Created             pod/backend-649b4bbcd4-zqkf7     Created container: backend
+33s         Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-6f64fcc59b from 0 to 1
+33s         Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-79f997f888 from 0 to 1
+33s         Normal    SuccessfulCreate    replicaset/gateway-79f997f888    Created pod: gateway-79f997f888-hk8gb
+33s         Normal    Scheduled           pod/backend-649b4bbcd4-zqkf7     Successfully assigned debug-lab/backend-649b4bbcd4-zqkf7 to demo-control-plane
+33s         Normal    SuccessfulCreate    replicaset/backend-649b4bbcd4    Created pod: backend-649b4bbcd4-zqkf7
+33s         Normal    Created             pod/metrics-6f64fcc59b-9swgx     Created container: metrics
+33s         Normal    Pulled              pod/metrics-6f64fcc59b-9swgx     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+33s         Normal    Scheduled           pod/metrics-6f64fcc59b-9swgx     Successfully assigned debug-lab/metrics-6f64fcc59b-9swgx to demo-control-plane
+33s         Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-649b4bbcd4 from 0 to 1
+33s         Normal    Scheduled           pod/reporter-86d8796666-qclgm    Successfully assigned debug-lab/reporter-86d8796666-qclgm to demo-control-plane
+33s         Normal    Pulled              pod/reporter-86d8796666-qclgm    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+33s         Normal    Created             pod/reporter-86d8796666-qclgm    Created container: reporter
+33s         Normal    Pulled              pod/gateway-79f997f888-hk8gb     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+33s         Normal    SuccessfulCreate    replicaset/worker-7659796b9b     Created pod: worker-7659796b9b-qggw4
+33s         Normal    Scheduled           pod/worker-7659796b9b-qggw4      Successfully assigned debug-lab/worker-7659796b9b-qggw4 to demo-control-plane
+33s         Normal    Scheduled           pod/gateway-79f997f888-hk8gb     Successfully assigned debug-lab/gateway-79f997f888-hk8gb to demo-control-plane
+33s         Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-86d8796666 from 0 to 1
+32s         Normal    Started             pod/reporter-86d8796666-qclgm    Started container reporter
+32s         Normal    Created             pod/gateway-79f997f888-hk8gb     Created container: gateway
+32s         Normal    Started             pod/metrics-6f64fcc59b-9swgx     Started container metrics
+32s         Normal    Started             pod/backend-649b4bbcd4-zqkf7     Started container backend
+32s         Normal    Started             pod/gateway-79f997f888-hk8gb     Started container gateway
+16s         Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+15s         Normal    Pulled              pod/eb-verify-probe              Container image "busybox:1.36" already present on machine
+15s         Normal    Created             pod/eb-verify-probe              Created container: eb-verify-probe
+14s         Normal    Started             pod/eb-verify-probe              Started container eb-verify-probe
+13s         Normal    Pulled              pod/worker-7659796b9b-qggw4      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine
+12s         Normal    Created             pod/worker-7659796b9b-qggw4      Created container: worker
+11s         Normal    Started             pod/worker-7659796b9b-qggw4      Started container worker
+8s          Warning   BackOff             pod/worker-7659796b9b-qggw4      Back-off restarting failed container worker in pod worker-7659796b9b-qggw4_debug-lab(249ba62f-f2b9-4428-867c-0fa19cb7ec0d)
+5s          Warning   Unhealthy           pod/gateway-79f997f888-hk8gb     Readiness probe failed: Get "http://10.244.0.16:8080/healthz": dial tcp 10.244.0.16:8080: connect: connection refused
+5s          Warning   Unhealthy           pod/reporter-86d8796666-qclgm    Readiness probe failed: Get "http://10.244.0.18:8080/healthz": dial tcp 10.244.0.18:8080: connect: connection refused
+4s          Warning   Unhealthy           pod/backend-649b4bbcd4-zqkf7     Readiness probe failed: Get "http://10.244.0.15:8080/healthz": dial tcp 10.244.0.15:8080: connect: connection refused
+1s          Warning   Unhealthy           pod/metrics-6f64fcc59b-9swgx     Readiness probe failed: Get "http://10.244.0.17:8080/healthz": dial tcp 10.244.0.17:8080: connect: connection refused
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mchmod +x setup.sh lab/scenario.sh[27m
+[7m./setup.sh[27m
+[7m./setup.sh[27m
+
+[7mkubectl -n demo get deploy,pods,svc,ingress[27m
+[7mcurl --resolve demo.local:80:127.0.0.1 http://demo.local/[27m
+[7mcurl --resolve demo.local:80:127.0.0.1 http://demo.local/healthz[27m
+
+[7mcd lab[27m
+[7mscript -q part4-session.log[27m
+[7m./scenario.sh up[27m
+[7m./scenario.sh verify[27m
+
+[7mkubectl -n debug-lab get pods,deploy,jobs,events[27m
+[7mkubectl -n debug-lab get events --sort-by=.lastTimestamp[27m
+[7mkubectl -n debug-lab describe pod <problem-pod>[27m
+[7mkubectl -n debug-lab logs <problem-pod>[27m
+[7mkubectl auth can-i list pods -n debug-lab --as=system:serviceaccount:debug-lab:reporter[27m
+[7mhelm -n debug-lab get manifest debug-lab[27m
+[7mhelm -n debug-lab status debug-lab[27m
+
+[7m./scenario.sh up[27m
+[7m./scenario.sh verify[27m
+
+[7mexit[27m
+[7mcd ..[27m
+[7mnano lab/FINDINGS.md[27m
+
+[7mls[27m
+[7mls lab[27m
+[7mgit status[27m
+
+[7mgit init[27m
+[7mgit add .[27m
+[7mgit commit -m "initial DevOps take-home implementation"[27m
+[7mgit branch -M main[27m
+[7mgit remote add origin <YOUR_PUBLIC_REPOSITORY_URL>[27m
+[7mgit push -u origin main[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ kubectl -n debug-lab get events --sort-by=.lastTimestamp
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7mkubectl -n debug-lab describe pod <problem-pod>[27mkubectl -n debug-lab describe pod <problem-pod>[C
+[?2004lbash: syntax error near unexpected token `newline'
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ kubectl -n debug-lab describe pod <problem-pod>[K[K[K[K[K[K[K[K[K[K[K[K[K[7m6f64fcc59b-9swgx[27m6f64fcc59b-9swgx
+[?2004lError from server (NotFound): pods "6f64fcc59b-9swgx" not found
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mkubectl auth can-i list pods -n debug-lab --as=system:serviceaccount:debug-lab:reporter[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl auth can-i list pods -n debug-lab --as=system:serviceaccount:debug-lab:reporter
+[?2004lyes
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mhelm -n debug-lab get manifest debug-lab[27mhelm -n debug-lab get manifest debug-lab
+[?2004l---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: reporter-read
+subjects:
+  - kind: ServiceAccount
+    name: reporter
+    namespace: debug-lab
+---
+# Source: debug-lab/templates/backend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  selector:
+    app: backend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+# Source: debug-lab/templates/gateway.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  selector:
+    app: gateway
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+---
+# Source: debug-lab/templates/reporter.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  selector:
+    app: reporter
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+# Source: debug-lab/templates/backend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: backend
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "api"
+            - name: APP_NAME
+              value: "backend"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/gateway.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: gateway
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "gateway"
+            - name: APP_NAME
+              value: "gateway"
+            - name: BACKEND_URL
+              value: "http://backend.debug-lab.svc:8080"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/metrics.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics
+  labels:
+    app: metrics
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metrics
+  template:
+    metadata:
+      labels:
+        app: metrics
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: metrics
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "api"
+            - name: APP_NAME
+              value: "metrics"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: "1"
+              memory: 128Mi
+            requests:
+              cpu: 500m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/reporter.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reporter
+  template:
+    metadata:
+      labels:
+        app: reporter
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      serviceAccountName: reporter
+      containers:
+        - name: reporter
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: APP_MODE
+              value: "reporter"
+            - name: APP_NAME
+              value: "reporter"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/worker.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  labels:
+    app: worker
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: worker
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "worker"
+            - name: APP_NAME
+              value: "worker"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/migrate-job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+  labels:
+    app: migrate
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        app: migrate
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: APP_MODE
+              value: "migrate"
+            - name: APP_NAME
+              value: "migrate"
+            - name: VERSION
+              value: "2.0.0"
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mhelm -n debug-lab status debug-lab[27mhelm -n debug-lab status debug-lab
+[?2004lNAME: debug-lab
+LAST DEPLOYED: Sat Sep 19 06:33:59 2026
+NAMESPACE: debug-lab
+STATUS: failed
+REVISION: 4
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7m./scenario.sh up[27m./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+limitrange/debug-lab-guardrails unchanged
+namespace/debug-lab unchanged
+==> installing the broken chart
+Error: UPGRADE FAILED: cannot patch "migrate" with kind Job: Job.batch "migrate" is invalid: spec.template: Invalid value: {"labels":{"app":"migrate","batch.kubernetes.io/controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","batch.kubernetes.io/job-name":"migrate","controller-uid":"968e6787-75d2-4f18-ac90-d6f05851beb4","job-name":"migrate"},"Spec":{"Volumes":null,"InitContainers":null,"Containers":[{"Name":"migrate","Image":"docker.io/ebinterview/eb-debug-app:1.0.1","Command":null,"Args":null,"WorkingDir":"","Ports":null,"EnvFrom":null,"Env":[{"Name":"APP_MODE","Value":"migrate","ValueFrom":null},{"Name":"APP_NAME","Value":"migrate","ValueFrom":null},{"Name":"VERSION","Value":"2.0.0","ValueFrom":null}],"Resources":{"Limits":{"cpu":"200m","memory":"128Mi"},"Requests":{"cpu":"50m","memory":"64Mi"},"Claims":null},"ResizePolicy":null,"RestartPolicy":null,"RestartPolicyRules":null,"VolumeMounts":null,"VolumeDevices":null,"LivenessProbe":null,"ReadinessProbe":null,"StartupProbe":null,"Lifecycle":null,"TerminationMessagePath":"/dev/termination-log","TerminationMessagePolicy":"File","ImagePullPolicy":"IfNotPresent","SecurityContext":{"Capabilities":{"Add":null,"Drop":["ALL"]},"Privileged":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"ReadOnlyRootFilesystem":true,"AllowPrivilegeEscalation":false,"ProcMount":null,"SeccompProfile":null,"AppArmorProfile":null},"Stdin":false,"StdinOnce":false,"TTY":false}],"EphemeralContainers":null,"RestartPolicy":"Never","TerminationGracePeriodSeconds":30,"ActiveDeadlineSeconds":null,"DNSPolicy":"ClusterFirst","NodeSelector":null,"ServiceAccountName":"","AutomountServiceAccountToken":null,"NodeName":"","SecurityContext":{"HostNetwork":false,"HostPID":false,"HostIPC":false,"ShareProcessNamespace":null,"HostUsers":null,"SELinuxOptions":null,"WindowsOptions":null,"RunAsUser":null,"RunAsGroup":null,"RunAsNonRoot":null,"SupplementalGroups":null,"SupplementalGroupsPolicy":null,"FSGroup":null,"FSGroupChangePolicy":null,"Sysctls":null,"SeccompProfile":null,"AppArmorProfile":null,"SELinuxChangePolicy":null},"ImagePullSecrets":null,"Hostname":"","Subdomain":"","SetHostnameAsFQDN":null,"Affinity":null,"SchedulerName":"default-scheduler","Tolerations":null,"HostAliases":null,"PriorityClassName":"","Priority":null,"PreemptionPolicy":null,"DNSConfig":null,"ReadinessGates":null,"RuntimeClassName":null,"Overhead":null,"EnableServiceLinks":null,"TopologySpreadConstraints":null,"OS":null,"SchedulingGates":null,"ResourceClaims":null,"Resources":null,"HostnameOverride":null}}: field is immutable
+
+[2mhelm reported an error. That is not your machine misbehaving —[0m
+[2mit is part of the exercise. Read the error; it is evidence.[0m
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7m./scenario.sh verify[27m./scenario.sh verify
+[?2004l==> verifying goal state in namespace debug-lab
+  [31mFAIL[0m  migrate Job has not completed (does it exist? did the chart even install cleanly?)
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [31mFAIL[0m  1 pod(s) in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [31mFAIL[0m  backend does not answer on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m10 check(s) failing[0m, 1 passing. Keep digging — every failure is a symptom.
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mCrashLoopBackOff[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CCrashLoopBackOff
+[A
+[?2004lCrashLoopBackOff: command not found
+[?2004h]0;vyasan@vyasan: ~/Downloads/bot/enterprise-bot-submission-draft/lab[01;32mvyasan@vyasan[00m:[01;34m~/Downloads/bot/enterprise-bot-submission-draft/lab[00m$ [7mexit[27mexit
+[?2004lexit
+
+Script done on 2026-09-19 06:37:18+05:30 [COMMAND_EXIT_CODE="127"]
